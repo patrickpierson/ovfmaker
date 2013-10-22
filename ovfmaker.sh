@@ -8,9 +8,9 @@ if [ "$1" == "" ]; then
 	echo "-List of available vms to package-"
 	echo "----------------------------------"
 	sed -n 's_.*<Name>\(.*\)</Name>.*_\1_p' master/vms/*/*.ovf
-    	echo "----------------------------------"
+	echo "----------------------------------"
 	echo "-Re-run with ovfmasker.sh vm_name-"
-    	echo "----------------------------------"
+	echo "----------------------------------"
 
 else VM_NAME=$1
 	#get location of ovf for specific vm
