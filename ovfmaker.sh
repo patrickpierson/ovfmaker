@@ -16,7 +16,7 @@ else VM_NAME=$1
 	#get location of ovf for specific vm
 	VM_OVF_LOC=$(grep -r "$VM_NAME" master/vms/* | cut -d ":" -f 1)
 	#get location of image
-	VM_IMG_LOC=$(cat $VM_OVF_LOC | grep '<References><File ovf:href="' | cut -d '"' -f 2)
+        VM_IMG_LOC=$(sed -n 's_.*File ovf:href="\(.*\)\" ovf:id.*_\1_p' $VM_OVF_LOC)
 	#add images to location of image
 	VM_FIN_IMG_LOC="images/$VM_IMG_LOC"
 	#convert to tgz and label as ovf
