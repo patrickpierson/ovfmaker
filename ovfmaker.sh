@@ -6,7 +6,7 @@ if [ "$1" == "" ]; then
 	#get list of exported vms
 	echo "----------------------------------"
 	echo "-List of available vms to package-"
-	cat master/vms/*/*.ovf | grep '<Name>' | awk 'BEGIN { FS = "<Name>" } ; { print $2 }' | cut -d "<" -f 1
+	sed -n 's_.*<Name>\(.*\)</Name>.*_\1_p' master/vms/*/*.ovf
     echo "----------------------------------"
 	echo "-Re-run with ovfmasker.sh vm_name-"
     echo "----------------------------------"
