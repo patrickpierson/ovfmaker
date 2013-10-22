@@ -2,9 +2,10 @@
 #This program will take in an export directory and print which vms are available for ovf-tar-gz-export
 #Then it will convert it to ovf for import into ovirt/rhev
 
-if [$1==""]; then
+if [ "$1" == "" ]; then
 	#get list of exported vms
 	cat master/vms/*/*.ovf | grep '<Name>' | awk 'BEGIN { FS = "<Name>" } ; { print $2 }' | cut -d "<" -f 1
+    echo "--------------------------------"
 	echo "Re-run with ovfmasker.sh vm_name"
 else VM_NAME=$1
 	#get location of ovf for specific vm
