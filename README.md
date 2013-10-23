@@ -1,3 +1,7 @@
-This program will take in an export directory and print which vms are 
-available for ovf-tar-gz-export. Then it will convert it to ovf for import 
-into ovirt/rhev
+ovfmaker is a simple script made for viewing an Ovirt/RHEV export directory, then once a vm name is chosen an ovf
+is generated in the /tmp directory for movement to another Ovirt/RHEV cluster to be imported via the Ovirt/RHEV
+image upload utilities.
+
+run with ./ovfmaker /path/to/export/directory vm_name
+
+image is saved to /tmp/vm_name.ovf
