@@ -35,7 +35,9 @@ else
 		#add images to location of image
 		VM_FIN_IMG_LOC="images/$VM_IMG_LOC"
 		#convert to tgz and label as ovf
-		echo "Saving $VM_NAME.ovf to /tmp/$VM_NAME.ovf"
+		echo "--------------------------------------------------------------"
+		echo "|       Saving $VM_NAME.ovf to /tmp/$VM_NAME.ovf             |"
+		echo "--------------------------------------------------------------"
 		tar czvf /tmp/$VM_NAME.ovf --directory=$EXPORT_DIRECTORY $VM_FIN_IMG_LOC $VM_OVF_LOC
 	fi
 fi
