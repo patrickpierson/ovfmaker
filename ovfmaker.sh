@@ -34,9 +34,11 @@ else
 		VM_IMG_LOC=$(sed -n 's_.*File ovf:href="\(.*\)\" ovf:id.*_\1_p' $VM_OVF_LOC)
 		#add images to location of image
 		VM_FIN_IMG_LOC="images/$VM_IMG_LOC"
+		#set file size variable
+		VM_FILE_SIZE=$(ls -lah $EXPORT_DIRECTORY$VM_FIN_IMG_LOC | awk '{print $5}')
 		#convert to tgz and label as ovf
 		echo "--------------------------------------------------------------"
-		echo "       Saving $VM_NAME.ovf to /tmp/$VM_NAME.ovf"
+		echo "Saving $VM_NAME.ovf of size $VM_FILE_SIZE to /tmp/$VM_NAME.ovf"
 		echo "--------------------------------------------------------------"
 		tar czvf /tmp/$VM_NAME.ovf --directory=$EXPORT_DIRECTORY $VM_FIN_IMG_LOC $VM_OVF_LOC
 	fi
