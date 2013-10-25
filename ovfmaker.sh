@@ -44,7 +44,7 @@ else
 		OVF_IMG_SIZE=$(stat -c%s "/tmp/$VM_NAME.ovf")
 		CHANGE=$(bc <<< "scale=2;  ($OVF_IMG_SIZE - $VM_IMG_SIZE)/$VM_IMG_SIZE * 100")
 		echo "--------------------------------------------------------------"
-		echo "$VM_NAME.ovf has been created, filesize reducted by $CHANGE%"
+		echo "$VM_NAME.ovf has been created, filesize changed by $CHANGE%"
 		echo "--------------------------------------------------------------"
 
 	fi
