@@ -36,8 +36,16 @@ else
 		VM_FIN_IMG_LOC="images/$VM_IMG_LOC"
 		#convert to tgz and label as ovf
 		echo "--------------------------------------------------------------"
-		echo "       Saving $VM_NAME.ovf to /tmp/$VM_NAME.ovf"
+		echo "Saving $VM_NAME.ovf of size $VM_FILE_SIZE to /tmp/$VM_NAME.ovf"
 		echo "--------------------------------------------------------------"
 		tar czvf /tmp/$VM_NAME.ovf --directory=$EXPORT_DIRECTORY $VM_FIN_IMG_LOC $VM_OVF_LOC
+		#print size info
+		VM_IMG_SIZE=$(stat -c%s "$VM_FIN_IMG_LOC")
+		OVF_IMG_SIZE=$(stat -c%s "/tmp/$VM_NAME.ovf")
+		CHANGE=$(bc <<< "scale=2;  ($OVF_IMG_SIZE - $VM_IMG_SIZE)/$VM_IMG_SIZE * 100")
+		echo "--------------------------------------------------------------"
+		echo "$VM_NAME.ovf has been created, filesize reducted by $CHANGE%"
+		echo "--------------------------------------------------------------"
+
 	fi
 fi
