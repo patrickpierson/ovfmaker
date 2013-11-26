@@ -1,8 +1,21 @@
 #!/bin/sh
-#This script will take in an export directory and print which vms are available for ovf-tar-gz-export
-#Then it will convert it to ovf for import into ovirt/rhev.  Execute from export directory containing vms
+#
+# Copyright (C) 2013
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, version 2 of the License.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# This script will take in an export directory and print which vms are 
+# available for ovf-tar-gz-export. Then it will convert it to ovf for 
+# import into ovirt/rhev.  Execute from export directory containing vms.
 
-#check 1st argument for export directory
+# check 1st argument for export directory
 if [ "$1" == "" ]; then
 	echo "------------------------------------------------------------------------------"
 	echo "| An export direcotry is required                                            |"
@@ -14,7 +27,7 @@ if [ "$1" == "" ]; then
 	
 else
 	EXPORT_DIRECTORY=$1
-	#check 2nd argument for vmname in export directory, if name does not exist print all vms available
+	# check 2nd argument for vmname in export directory, if name does not exist print all vms available
 	if [ "$2" == "" ]; then
 		#get list of exported vms
 		echo "--------------------------------------------------------------"
