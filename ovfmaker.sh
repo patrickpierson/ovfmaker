@@ -44,6 +44,7 @@ if [ "$2" == "" -o ! -e ${EXPORT_DIRECTORY}/$2 ]; then
 	echo "| List of available vms to package                           |"
 	echo "--------------------------------------------------------------"
 	sed -n 's_.*<Name>\(.*\)</Name>.*_\1_p' $EXPORT_DIRECTORY/master/vms/*/*.ovf
+	echo
 	echo "--------------------------------------------------------------"
 	echo "| Re-run with ovfmasker.sh /path/to/export/directory vm_name |"
 	echo "--------------------------------------------------------------"
